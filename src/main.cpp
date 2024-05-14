@@ -65,6 +65,10 @@ NRF52Bluetooth *nrf52Bluetooth = nullptr;
 #include "mesh/eth/ethClient.h"
 #endif
 
+// TODO: Ugly Ethernet HACK
+#include <ETH.h>
+// TODO: Ugly Ethernet HACK
+
 #if !MESHTASTIC_EXCLUDE_MQTT
 #include "mqtt/MQTT.h"
 #endif
@@ -683,6 +687,13 @@ void setup()
     LOG_DEBUG("SPI.begin(SCK=%d, MISO=%d, MOSI=%d)\n", LORA_SCK, LORA_MISO, LORA_MOSI);
     SPI.setFrequency(4000000);
 #endif
+
+    // TODO: Ugly code with Ethernet for ESP32
+
+    // TODO: Whenever mesh firmware will use SDK 5.x.x, we can use SPI ethernet
+    // ETH.begin(ETH_PHY_W5500, /*ETH_ADDR*/ 1, /*ETH_CS*/ 5, /*ETH_IRQ*/ 16, /*ETH_RST*/ -1, SPI);
+    ETH.begin(/*Phy addr*/ 1, /*ETH_PWR*/ -1, /*ETH_MDC*/ 23, /*ETH_MDIO*/ 18, /*ETH_TYPE*/ ETH_PHY_LAN8720,
+              /*ETH_CLKTYPE*/ ETH_CLOCK_GPIO17_OUT);
 
     // Initialize the screen first so we can show the logo while we start up everything else.
     screen = new graphics::Screen(screen_found, screen_model, screen_geometry);
