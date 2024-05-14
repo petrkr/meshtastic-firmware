@@ -243,6 +243,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #ifndef HAS_ETHERNET
 #define HAS_ETHERNET 0
 #endif
+#ifndef HAS_ESP_ETHERNET
+#define HAS_ESP_ETHERNET 0
+#endif
 #ifndef HAS_SCREEN
 #define HAS_SCREEN 0
 #endif
@@ -333,8 +336,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define HAS_WIFI 0
 #endif
 
-// Allow code that needs internet to just check HAS_NETWORKING rather than HAS_WIFI || HAS_ETHERNET
-#define HAS_NETWORKING (HAS_WIFI || HAS_ETHERNET)
+// Allow code that needs internet to just check HAS_NETWORKING rather than HAS_WIFI || HAS_ETHERNET || HAS_ESP_ETHERNET
+#define HAS_NETWORKING (HAS_WIFI || HAS_ETHERNET || HAS_ESP_ETHERNET)
 
 // // Turn off Bluetooth
 #ifdef MESHTASTIC_EXCLUDE_BLUETOOTH

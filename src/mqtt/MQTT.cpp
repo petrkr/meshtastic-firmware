@@ -441,7 +441,11 @@ bool MQTT::wantsLink() const
     return hasChannelorMapReport && WiFi.isConnected();
 #endif
 #if HAS_ETHERNET
+#if defined(ARCH_ESP32)
+    return hasChannelorMapReport && isEthernetAvailable();
+#else
     return hasChannelorMapReport && Ethernet.linkStatus() == LinkON;
+#endif
 #endif
     return false;
 }

@@ -928,6 +928,13 @@ void AdminModule::handleGetDeviceConnectionStatus(const meshtastic_MeshPacket &r
     }
 #endif
 
+#if HAS_ESP_ETHERNET
+    conn.has_ethernet = true;
+    conn.ethernet.has_status = true;
+    conn.ethernet.status.is_connected = true;
+    conn.ethernet.status.ip_address = ETH.localIP();
+#endif
+
 #if HAS_BLUETOOTH
     conn.has_bluetooth = true;
     conn.bluetooth.pin = config.bluetooth.fixed_pin;

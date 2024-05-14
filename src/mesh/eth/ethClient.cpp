@@ -1,4 +1,5 @@
 #include "mesh/eth/ethClient.h"
+#if HAS_ETHERNET
 #include "NodeDB.h"
 #include "RTC.h"
 #include "concurrency/Periodic.h"
@@ -187,4 +188,5 @@ bool isEthernetAvailable()
     }
 }
 
+#endif
 #endif

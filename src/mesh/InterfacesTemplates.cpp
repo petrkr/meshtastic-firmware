@@ -31,7 +31,7 @@ template class ServerAPI<EthernetClient>;
 template class APIServerPort<ethServerAPI, EthernetServer>;
 #endif
 
-#if HAS_WIFI
+#if HAS_WIFI || HAS_ESP_ETHERNET
 #include "api/WiFiServerAPI.h"
 template class ServerAPI<WiFiClient>;
 template class APIServerPort<WiFiServerAPI, WiFiServer>;

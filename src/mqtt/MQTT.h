@@ -17,6 +17,9 @@
 #if HAS_ETHERNET
 #include <EthernetClient.h>
 #endif
+#if HAS_ESP_ETHERNET
+#include <ETH.h>
+#endif
 
 #if HAS_NETWORKING
 #include <PubSubClient.h>
@@ -32,7 +35,7 @@ class MQTT : private concurrency::OSThread
 {
     // supposedly the current version is busted:
     // http://www.iotsharing.com/2017/08/how-to-use-esp32-mqtts-with-mqtts-mosquitto-broker-tls-ssl.html
-#if HAS_WIFI
+#if HAS_WIFI || HAS_ESP_ETHERNET
     WiFiClient mqttClient;
 #if !defined(ARCH_PORTDUINO)
 #if defined(ESP_ARDUINO_VERSION_MAJOR) && ESP_ARDUINO_VERSION_MAJOR < 3

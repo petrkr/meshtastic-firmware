@@ -121,6 +121,10 @@ extern "C" void logLegacy(const char *level, const char *fmt, ...);
 // Default Bluetooth PIN
 #define defaultBLEPin 123456
 
+#if HAS_ESP_ETHERNET
+#include <ETH.h>
+#endif
+
 #if HAS_ETHERNET
 #include <RAK13800_W5100S.h>
 #endif // HAS_ETHERNET

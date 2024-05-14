@@ -65,6 +65,10 @@ NRF52Bluetooth *nrf52Bluetooth = nullptr;
 #include "mesh/eth/ethClient.h"
 #endif
 
+#include "mesh/eth/ethEspClient.h"
+// #if HAS_ESP_ETHERNET
+// #endif
+
 #if !MESHTASTIC_EXCLUDE_MQTT
 #include "mqtt/MQTT.h"
 #endif
@@ -1103,6 +1107,11 @@ void setup()
 #if HAS_ETHERNET
     // Initialize Ethernet
     initEthernet();
+#endif
+
+#if HAS_ESP_ETHERNET
+    // Initialize Ethernet
+    initEspEthernet();
 #endif
 #endif
 

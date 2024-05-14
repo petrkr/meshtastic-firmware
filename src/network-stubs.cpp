@@ -29,3 +29,17 @@ bool isEthernetAvailable()
 }
 
 #endif
+
+#if (HAS_ESP_ETHERNET == 0)
+
+bool initEspEthernet()
+{
+    return false;
+}
+
+bool isEspEthernetAvailable()
+{
+    return false;
+}
+
+#endif
