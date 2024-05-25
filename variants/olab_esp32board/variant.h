@@ -19,7 +19,7 @@
 #define LORA_CS 26
 
 // ratio of voltage divider = 3.20 (R1=100k, R2=220k)
-#define ADC_MULTIPLIER 1
+#define ADC_MULTIPLIER 2
 
 #define BATTERY_PIN 39 // A battery voltage measurement pin, voltage divider connected here to measure battery voltage
 #define ADC_CHANNEL ADC1_GPIO39_CHANNEL
