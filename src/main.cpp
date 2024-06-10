@@ -654,6 +654,7 @@ void setup()
 
     // TODO: Ugly code with Ethernet for ESP32
 
+    // TODO: Whenever mesh firmware will use SDK 5.x.x, we can use SPI ethernet
     // ETH.begin(ETH_PHY_W5500, /*ETH_ADDR*/ 1, /*ETH_CS*/ 5, /*ETH_IRQ*/ 16, /*ETH_RST*/ -1, SPI);
     ETH.begin(/*Phy addr*/ 1, /*ETH_PWR*/ -1, /*ETH_MDC*/ 23, /*ETH_MDIO*/ 18, /*ETH_TYPE*/ ETH_PHY_LAN8720,
               /*ETH_CLKTYPE*/ ETH_CLOCK_GPIO17_OUT);
