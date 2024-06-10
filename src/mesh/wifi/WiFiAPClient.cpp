@@ -11,6 +11,7 @@
 #include "mqtt/MQTT.h"
 #endif
 #include "target_specific.h"
+#include <ETH.h>
 #include <WiFi.h>
 #include <WiFiUdp.h>
 #ifdef ARCH_ESP32
@@ -364,15 +365,18 @@ static void WiFiEvent(WiFiEvent_t event)
         break;
     case ARDUINO_EVENT_ETH_STOP:
         LOG_INFO("Ethernet stopped\n");
+        syslog.disable();
         break;
     case ARDUINO_EVENT_ETH_CONNECTED:
         LOG_INFO("Ethernet connected\n");
         break;
     case ARDUINO_EVENT_ETH_DISCONNECTED:
         LOG_INFO("Ethernet disconnected\n");
+        syslog.disable();
         break;
     case ARDUINO_EVENT_ETH_GOT_IP:
-        LOG_INFO("Obtained IP address (ARDUINO_EVENT_ETH_GOT_IP)\n");
+        LOG_INFO("Ethernet obtained IP address: %s\n", ETH.localIP().toString().c_str());
+        onNetworkConnected();
         break;
     case ARDUINO_EVENT_ETH_GOT_IP6:
         LOG_INFO("Obtained IP6 address (ARDUINO_EVENT_ETH_GOT_IP6)\n");
