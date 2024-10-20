@@ -1,5 +1,7 @@
 // #define BUTTON_NEED_PULLUP // if set we need to turn on the internal CPU pullup during sleep
 
+#define MAX_NUM_NODES 200
+
 #define I2C_SDA 21
 #define I2C_SCL 22
 
