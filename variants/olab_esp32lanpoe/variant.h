@@ -18,6 +18,14 @@
 #define LORA_MOSI 32
 #define LORA_CS 5
 
+#define HAS_ESP_ETHERNET 1
+#define ETH_PHY_ADDR 1
+#define ETH_PWR -1 // Do not have power pin connected
+#define ETH_MDC 23
+#define ETH_MDIO 18
+#define ETH_TYPE ETH_PHY_LAN8720
+#define ETH_CLKTYPE ETH_CLOCK_GPIO17_OUT
+
 // ratio of voltage divider = 3.20 (R1=100k, R2=220k)
 // #define ADC_MULTIPLIER 2
 
