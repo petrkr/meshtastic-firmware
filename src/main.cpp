@@ -730,8 +730,8 @@ void setup()
     SPI.begin();
 #else
     // ESP32
-    SPI.begin(LORA_SCK, LORA_MISO, LORA_MOSI, LORA_CS);
-    LOG_DEBUG("SPI.begin(SCK=%d, MISO=%d, MOSI=%d, NSS=%d)", LORA_SCK, LORA_MISO, LORA_MOSI, LORA_CS);
+    SPI.begin(LORA_SCK, LORA_MISO, LORA_MOSI);
+    LOG_DEBUG("SPI.begin(SCK=%d, MISO=%d, MOSI=%d)", LORA_SCK, LORA_MISO, LORA_MOSI);
     SPI.setFrequency(4000000);
 #endif
 
